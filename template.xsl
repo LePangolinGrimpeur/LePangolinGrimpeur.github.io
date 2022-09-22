@@ -6,24 +6,16 @@
 <xsl:template match="/">
   <html>
   <body>
-  <h1>Homepage de LePangolinGrimpeur</h2>
-  <h2>Voici un tableau récapitulant des informations me concernant</h2>
-    <table border="1">
-      <tr>
-        <th>Nom Complet</th>
-        <th>Prénom</th>
-        <th>Nom</th>
-        <th>Homepage</th>
-      </tr>
+  <h1>Homepage de LePangolinGrimpeur</h1>
+  <h2>Voici des informations me concernant</h2>
+  <ul>
       <xsl:for-each select="rdf:RDF/foaf:Person">
-      <tr>
-        <td><xsl:value-of select="foaf:name"/></td>
-        <td><xsl:value-of select="foaf:givenname"/></td>
-        <td><xsl:value-of select="foaf:family_name"/></td>
-        <td><xsl:value-of select="foaf:homepage/@rdf:resource"/></td>
-      </tr>
+        <li>Nom Complet : <xsl:value-of select="foaf:name"/></li>
+        <li>Prénom : <xsl:value-of select="foaf:firstName"/></li>
+        <li>Nom de famille : <xsl:value-of select="foaf:lastName"/></li>
+        <li>Lien homepage : <xsl:value-of select="foaf:homepage/@rdf:resource"/></li>
       </xsl:for-each>
-    </table>
+  </ul>
   </body>
   </html>
 </xsl:template>
